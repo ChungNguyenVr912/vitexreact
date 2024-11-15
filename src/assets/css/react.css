@@ -1,0 +1,70 @@
+.logo {
+  height: 100px;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  0% {
+    transform: rotate3d(0,0,0,0deg);
+  }
+  100% {
+    transform: rotate3d(0,0,1,360deg);
+  }
+}
+
+@keyframes virtual {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.5;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    /*animation: logo-spin 6s cubic-bezier(0.7, 0, 0.4, 1) infinite;*/
+    /*animation: logo-spin infinite 6s cubic-bezier(0.7, 0, 0.4, 1), logo-spin-reverse infinite 6s cubic-bezier(0.7, 0, 0.4, 1) 6s;*/
+  }
+}
+
+.card {
+  --btn-width: 120px;
+  --btn-height: 50px;
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  .card-background {
+    border-radius: calc(var(--btn-border-radius) + 2px);
+    /*background: linear-gradient(45deg, #42d392, #647eff); !*padding-box, linear-gradient(45deg, #42d392, #647eff) border-box;*!*/
+    /*animation: logo-spin 2s linear infinite;*/
+    width: var(--btn-width);
+    height: var(--btn-height);
+  }
+  .button-wrap {
+    width: var(--btn-width);
+    height: var(--btn-height);
+    position: absolute;
+    padding: 2px;
+    button {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.read-the-docs {
+  color: #888;
+}
