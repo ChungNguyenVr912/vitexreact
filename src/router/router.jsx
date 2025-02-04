@@ -7,6 +7,7 @@ import Components from "../pages/Components.jsx";
 import GetStarted from "../components/GetStarted.jsx";
 import Installation from "../components/Installation.jsx";
 import Configuration from "../components/Configuration.jsx";
+import React from "../components/React.jsx";
 
 const router = createBrowserRouter(
     [
@@ -41,6 +42,10 @@ const router = createBrowserRouter(
             element: <Components/>
           }
         ]
+      },
+      {
+        path: 'react',
+        element: <React/>,
       },
       {
         path: '*',

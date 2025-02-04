@@ -1,14 +1,25 @@
 import {Outlet, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
+import {product} from "../service/product.js";
+import {DataContext} from "../app/context.jsx";
 
 function Docs() {
   const tabs = ['', 'install', 'config'];
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(-1);
+  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
+
   useEffect(() => {
-    navigate(tabs[index]);
+    if (index !== -1) navigate(tabs[index]);
   }, [index])
+
+  useEffect(() => {
+    product.getAll().then((res) => res.data).then(data => {
+        console.log('data', data);
+        setProducts(data);
+    })
+  }, []);
   return (
       <>
         <div>
@@ -20,7 +31,9 @@ function Docs() {
           </span>
         </div>
         <div className="mt-2">
-          <Outlet/>
+          <DataContext.Provider value={products}>
+            <Outlet/>
+          </DataContext.Provider>
         </div>
       </>
   );
